@@ -22,8 +22,8 @@ Type the following command in the terminal
  npm install
  ```
 ### Setting the Environment variables
-1. Go to **src** folder.
-2. Add the **environment.prod.ts** and the **environment.ts** files.
+1. Go to **src** folder. Create a folder named **environments**. 
+2. Inside the **environments** folder, add the **environment.prod.ts** and the **environment.ts** files.
 3. If you don't have these files, create them and add the following code.
   * **environment.prod.ts**
     ```typescript
