@@ -3,6 +3,9 @@ This is a web client app for the Password Manager project written in Angular.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
 
+## Demo
+The project is hosted using **Firebase Hosting** on this [URL](https://password-manager-74fdc.web.appc)
+
 ## Getting Started
 1. Download and Install [Node.js](https://nodejs.org/en/download/)
       * Linux (Ubuntu based distros)
@@ -76,5 +79,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Demo
-The project is hosted using **Firebase Hosting** on this [URL](https://password-manager-74fdc.web.appc)
