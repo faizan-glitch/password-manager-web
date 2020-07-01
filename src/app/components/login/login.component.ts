@@ -3,6 +3,9 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { ResetComponent } from '../reset/reset.component';
+
 import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -12,6 +15,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
+
 
 @Component({
   selector: 'app-login',
@@ -23,14 +27,15 @@ export class LoginComponent implements OnInit {
   constructor(
     private _auth: AngularFireAuth,
     private _snackbar: MatSnackBar,
-    private _router: Router
-    ) { }
+    private _router: Router,
+    private _bottomSheet: MatBottomSheet
+  ) { }
 
   ngOnInit(): void {
   }
 
-  email:string;
-  password: string; 
+  email: string;
+  password: string;
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -47,13 +52,16 @@ export class LoginComponent implements OnInit {
   login(): void {
     this._auth
       .signInWithEmailAndPassword(this.email, this.password)
-        .then(user => {
-          this._router.navigateByUrl('/dashboard');
-        })
-        .catch(err => {
-          this._snackbar.open(err, "Dismiss", {
-            duration: 4000
-          });
+      .then(user => {
+        this._router.navigateByUrl('/dashboard');
+      })
+      .catch(err => {
+        this._snackbar.open(err, "Dismiss", {
+          duration: 4000
         });
+      });
+  }
+  openBottomSheet(): void {
+    this._bottomSheet.open(ResetComponent);
   }
 }

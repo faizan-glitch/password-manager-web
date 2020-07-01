@@ -21,6 +21,7 @@ import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.compone
 import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
 import { SideNavRoutingModule } from './components/dashboard/sidenav/sidenav-routing.module';
 import { AuthGuard } from './services/auth.guard';
+import { ResetComponent } from './components/reset/reset.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthGuard } from './services/auth.guard';
     AuthRoutesComponent,
     DashboardComponent, 
     ToolbarComponent,
-    SidenavComponent
+    SidenavComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

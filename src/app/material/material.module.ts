@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu'; 
 import { MatIconModule } from '@angular/material/icon'; 
 import { MatListModule } from '@angular/material/list'; 
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
 
 const MaterialComponents = [
   MatGridListModule,
@@ -26,7 +27,8 @@ const MaterialComponents = [
   MatToolbarModule,
   MatMenuModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatBottomSheetModule
 ];
 
 @NgModule({
