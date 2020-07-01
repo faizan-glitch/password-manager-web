@@ -1,0 +1,57 @@
+<mat-toolbar class="d-flex justify-content-between shadow">
+  <div class="d-flex align-items-center">
+    <span class='d-none d-md-inline mr-1'> Password Manager </span>
+    <button mat-button (click)="toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  
+  <div class="menu-container">
+
+    <button mat-button [matMenuTriggerFor]="search" matTooltip="Search">
+      <mat-icon>search</mat-icon>
+      
+    </button>
+    <mat-menu #search="matMenu" xPosition="before">
+      <form class="example-form" mat-menu-item>
+        <mat-form-field class="example-full-width">
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="Search">
+        </mat-form-field>
+      </form>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="notifications"  matTooltip="Notifications">
+      <mat-icon>notifications_on</mat-icon>
+    </button>
+    <mat-menu #notifications="matMenu">
+      <button mat-menu-item>
+        <mat-icon>notification_important</mat-icon>
+        Thicc Thighs
+      </button>
+    </mat-menu>
+     
+    <button mat-button [matMenuTriggerFor]="menu" aria-labelledby="Settings Menu"  matTooltip="Settings">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>account_box</mat-icon>
+        <span>My Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Mute Notifications</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>invert_colors</mat-icon>
+        <span>Toggle Theme</span>
+      </button>
+      <button mat-menu-item (click)="logoutUser()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sign Out</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

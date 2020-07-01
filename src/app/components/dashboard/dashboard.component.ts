@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +7,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private _auth: AngularFireAuth) { 
-    console.log("This is the constructor");
-    
+  constructor() { }
+
+  ngOnInit() {
   }
 
-  ngOnInit(): void { }
 
 }

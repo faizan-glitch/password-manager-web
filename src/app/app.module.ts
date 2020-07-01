@@ -17,6 +17,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
+import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
+import { SideNavRoutingModule } from './components/dashboard/sidenav/sidenav-routing.module';
 import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
@@ -27,7 +30,9 @@ import { AuthGuard } from './services/auth.guard';
     SignupComponent,
     HomeBackgroundComponent,
     AuthRoutesComponent,
-    DashboardComponent
+    DashboardComponent, 
+    ToolbarComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { AuthGuard } from './services/auth.guard';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-  
+    SideNavRoutingModule
   ],
   providers: [
     AuthGuard
