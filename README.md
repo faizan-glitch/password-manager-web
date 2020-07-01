@@ -28,7 +28,7 @@ Type the following command in the terminal
   * **environment.prod.ts**
     ```typescript
     export const environment = {
-      production: false,
+      production: true,
       firebase: {
         apiKey: "Your API-key",
         authDomain: "Your Auth-Domain",
@@ -55,7 +55,6 @@ Type the following command in the terminal
       }
     };
     ```
-    
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
