@@ -1,13 +1,4 @@
 {
-  "targets": {
-    "password-manager-74fdc": {
-      "hosting": {
-        "password-manager-web": [
-          "password-manager-74fdc"
-        ]
-      }
-    }
-  },
   "projects": {
     "default": "password-manager-74fdc"
   }
