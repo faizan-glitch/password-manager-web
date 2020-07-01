@@ -122,6 +122,10 @@
               "devServerTarget": "password-manager-web:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

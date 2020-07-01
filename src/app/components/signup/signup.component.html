@@ -2,7 +2,7 @@
   <mat-form-field class="w-100 mb-2">
     <mat-label>Email</mat-label>
     <input matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-           placeholder="Ex. pat@example.com">
+           placeholder="Ex. pat@example.com" [(ngModel)]="email">
     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
     <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
       Please enter a valid email address
@@ -14,7 +14,8 @@
   
   <mat-form-field class="w-100 mb-2">
     <mat-label>Password</mat-label>
-    <input matInput type="password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+    <input matInput type="password" [formControl]="passwordFormControl" [errorStateMatcher]="matcher"
+    [(ngModel)]="password">
     <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
     <mat-error *ngIf="passwordFormControl.hasError('minlength')">
       Password must be of at least 6 characters
@@ -37,6 +38,6 @@
   </mat-form-field>
 
   <div class="text-center">
-    <button mat-raised-button color="primary">Register</button>
+    <button mat-raised-button color="primary" (click)="signup()">Register</button>
   </div>
 </form>

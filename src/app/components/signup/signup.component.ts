@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+// import { AuthService } from '../../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -17,10 +20,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _auth: AngularFireAuth, private _snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
+
+  email: string;
+  password: string;
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -33,5 +39,22 @@ export class SignupComponent implements OnInit {
   ]);
   
   matcher = new MyErrorStateMatcher();
+
+  signup(): void {
+    this._auth
+      .createUserWithEmailAndPassword(this.email, this.password)
+      .then(user => {
+        this._snackbar.open("Account created successfully", "Dismiss", {
+          duration: 4000
+        })     
+      })
+      .catch(err => {
+        console.log(err);
+        this._snackbar.open(err, "Dismiss", {
+          duration: 4000
+        })
+      }
+      );
+  }
 
 }

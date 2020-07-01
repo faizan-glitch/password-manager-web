@@ -13,6 +13,10 @@ import { HomeBackgroundComponent } from './components/home-background/home-backg
 import { AuthRoutesComponent } from './components/auth-routes/auth-routes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
   
   ],
   providers: [],
