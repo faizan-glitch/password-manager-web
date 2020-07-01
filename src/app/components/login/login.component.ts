@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -17,10 +20,18 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _auth: AngularFireAuth,
+    private _snackbar: MatSnackBar,
+    private _router: Router
+    ) { }
 
   ngOnInit(): void {
   }
+
+  email:string;
+  password: string; 
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -32,4 +43,17 @@ export class LoginComponent implements OnInit {
   ]);
 
   matcher = new MyErrorStateMatcher();
+
+  login(): void {
+    this._auth
+      .signInWithEmailAndPassword(this.email, this.password)
+        .then(user => {
+          this._router.navigateByUrl('/dashboard');
+        })
+        .catch(err => {
+          this._snackbar.open(err, "Dismiss", {
+            duration: 4000
+          });
+        });
+  }
 }

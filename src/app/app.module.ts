@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { environment } from 'src/environments/environment';
     LoginComponent,
     SignupComponent,
     HomeBackgroundComponent,
-    AuthRoutesComponent
+    AuthRoutesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
